@@ -1,0 +1,61 @@
+---
+title: "Get Your Shiny On"
+subtitle: "Turning R Code into Interactive Gold!"
+date: "2024-12-05"
+author: "Tony Galvan"
+institute: "Acorns"
+format:
+  revealjs: 
+    theme: acorns.scss
+editor: visual
+server: shiny
+---
+
+## Introduction
+
+-   University of Notre Dame
+    -   1999 B.B.A. Management Information Systems
+    -   2019 M.S. Data Science
+-   Acorns
+    -   Data Analyst III & Analytics Engineer
+    -   [www.linkedin.com/in/anthony-raul-galvan](https://www.linkedin.com/in/anthony-raul-galvan/)
+
+::: notes
+My name is Tony Galván
+:::
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+```{r}
+library(tidyverse)
+
+theme_set(theme_light())
+
+mtcars |>
+  ggplot(aes(x = mpg, y = hp, color = disp)) +
+  geom_point()
+```
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+sliderInput("bins", "Number of bins:", 
+            min = 1, max = 50, value = 30)
+plotOutput("distPlot")
+```
+
+```{r}
+#| context: server
+output$distPlot <- renderPlot({
+  x <- faithful[, 2]  # Old Faithful Geyser data
+  bins <- seq(min(x), max(x), length.out = input$bins + 1)
+  hist(x, breaks = bins, col = 'darkgray', border = 'white')
+})
+```
