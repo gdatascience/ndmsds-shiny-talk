@@ -3,26 +3,129 @@ title: "Get Your Shiny On"
 subtitle: "Turning R Code into Interactive Gold!"
 date: "2024-12-05"
 author: "Tony Galvan"
-institute: "Acorns"
 format:
   revealjs: 
     theme: acorns.scss
 editor: visual
-server: shiny
+# server: shiny
 ---
+
+```{r}
+library(tidyverse)
+theme_set(theme_void(base_family = "Avenir Next"))
+```
+
 
 ## Introduction
 
--   University of Notre Dame
-    -   1999 B.B.A. Management Information Systems
-    -   2019 M.S. Data Science
--   Acorns
-    -   Data Analyst III & Analytics Engineer
-    -   [www.linkedin.com/in/anthony-raul-galvan](https://www.linkedin.com/in/anthony-raul-galvan/)
+### [University of Notre Dame]{style="color: #74c947"}
+
+-   1999 B.B.A. Management Information Systems
+-   2019 M.S. Data Science
+
+![](images/graduation.jpg){fig-align="center"}
 
 ::: notes
-My name is Tony Galván
+Hi! My name is Tony Galván
 :::
+
+## Introduction (continued)
+
+::::: columns
+::: {.column width="50%"}
+### [Acorns]{style="color: #74c947"}
+
+-   Data Analyst
+-   Analytics Engineer
+
+![](https://sqy7rm.media.zestyio.com/Acorns-Logo.svg){fig-align="center" height="200"}
+:::
+
+::: {.column width="50%"}
+### [Tidy Tuesday]{style="color: #74c947"}
+
+-   Tuesdays \@ 11AM PST on [Zoom](https://notredame.zoom.us/j/93246968828?pwd=T2k0QUFKNkxvMkV2ekZrejdpdTJIdz09)
+
+![](https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/static/tt_logo.png){fig-align="center"}
+:::
+:::::
+
+## Anatomy of a Shiny App
+
+```{r ShinyCodeSnippet}
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
+library(shiny)
+ui <- fluidPage(...)
+server <- function(input, output) {...}
+shinyApp(ui, server)
+```
+
+
+```{r ShinyUIServer}
+shiny_flow_df <- tibble(
+  xmin = c(0, 10),
+  xmax = c(5, 15),
+  ymin = c(0, 0),
+  ymax = c(10, 10),
+  fill = c("UI", "Server")
+)
+shiny_flow_df |>
+  ggplot() +
+  geom_rect(
+    aes(
+      xmin = xmin,
+      xmax = xmax,
+      ymin = ymin,
+      ymax = ymax,
+      fill = fill
+    ),
+    show.legend = FALSE
+  ) +
+  geom_text(
+    aes(
+      x = (xmin + xmax) / 2,
+      y = (ymin + ymax) / 2,
+      label = fill
+    ),
+    family = "Avenir Next",
+    color = "white",
+    fontface = "bold",
+    size = 20
+  ) +
+  geom_segment(
+    aes(
+      x = c(10, 5),
+      xend = c(5, 10),
+      y = c(3, 7),
+      yend = c(3, 7)
+    ),
+    arrow = arrow(length = unit(0.5, "cm")),
+    linewidth = 1.25,
+    color = "white"
+  ) +
+  geom_text(
+    aes(
+      x = c(7.5, 7.5),
+      y = c(3.75, 7.75),
+      label = c("Output", "Input")
+    ),
+    family = "Avenir Next",
+    color = "white",
+    fontface = "bold",
+    size = 8
+  ) +
+  scale_fill_manual(
+    values = c("#9471f6", "#74c947")
+  ) +
+  theme(
+    panel.background = element_rect(
+      fill = "#363f41",
+      color = "#363f41"
+    )
+  )
+```
 
 ## Bullets
 
@@ -46,16 +149,16 @@ mtcars |>
 When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
 
 ```{r}
-sliderInput("bins", "Number of bins:", 
-            min = 1, max = 50, value = 30)
-plotOutput("distPlot")
+# sliderInput("bins", "Number of bins:", 
+#             min = 1, max = 50, value = 30)
+# plotOutput("distPlot")
 ```
 
 ```{r}
 #| context: server
-output$distPlot <- renderPlot({
-  x <- faithful[, 2]  # Old Faithful Geyser data
-  bins <- seq(min(x), max(x), length.out = input$bins + 1)
-  hist(x, breaks = bins, col = 'darkgray', border = 'white')
-})
+# output$distPlot <- renderPlot({
+#   x <- faithful[, 2]  # Old Faithful Geyser data
+#   bins <- seq(min(x), max(x), length.out = input$bins + 1)
+#   hist(x, breaks = bins, col = 'darkgray', border = 'white')
+# })
 ```
