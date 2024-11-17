@@ -3,18 +3,19 @@ title: "Get Your Shiny On"
 subtitle: "Turning R Code into Interactive Gold!"
 date: "2024-12-05"
 author: "Tony Galvan"
+title-slide-attributes: 
+  data-notes: "Hi everyone! My name is Tony Galvan, and I’m excited to share one of my favorite R tools with you today—Shiny. I’ve titled this session 'Get Your Shiny On: Turning R Code into Interactive Gold!' because Shiny has this amazing ability to transform static code into something dynamic and engaging. Whether you’re building dashboards, apps, or just experimenting with interactivity, Shiny opens up so many possibilities. We’ll keep it fun and hands-on, so by the end of this session, you’ll have the confidence to start building your own Shiny apps. Before we dive in, please go ahead and launch R Studio on your computers. This is going to be a hands-on session, and we’ll be coding together. But before we dive into all that, let me tell you a little about myself."
 format:
   revealjs: 
     theme: acorns.scss
 editor: visual
-# server: shiny
+server: shiny
 ---
 
 ```{r}
 library(tidyverse)
 theme_set(theme_void(base_family = "Avenir Next"))
 ```
-
 
 ## Introduction
 
@@ -26,7 +27,13 @@ theme_set(theme_void(base_family = "Avenir Next"))
 ![](images/graduation.jpg){fig-align="center"}
 
 ::: notes
-Hi! My name is Tony Galván
+You know, they say lightning doesn’t strike twice—but I managed to graduate from Notre Dame not once, but twice. As a proud Double Domer, I earned my B.B.A. in Management Information Systems back in 1999, and then I came back for round two, earning my M.S. in Data Science in 2019.
+
+Here on this slide are two photos that mean a lot to me. The first is from my 1999 graduation with my dad — look at those baby faces! — and the second is from 2019, where I was lucky to share the day with my dad again, plus my wife and kids.
+
+Notre Dame didn’t just give me degrees to hang on the wall—it gave me a strong foundation in R, analytics, and machine learning. And let’s be honest, it also taught me how to survive late-night coding sessions fueled by coffee and maybe a few too many snacks.
+
+That foundation is why I’m here today: to help you level up with Shiny, just like I’ve done in my own career.
 :::
 
 ## Introduction (continued)
@@ -50,6 +57,45 @@ Hi! My name is Tony Galván
 :::
 :::::
 
+::: notes
+So, what am I up to these days? Well, I work as an Analytics Engineer and Data Analyst at Acorns, where I get to wrangle data, build dashboards, and automate workflows. It’s like solving puzzles every day, except the puzzles sometimes crash and throw error messages at you.
+
+But beyond work, I’m also the host of weekly Tidy Tuesday sessions. These are casual gatherings where we take random datasets, explore them, and try to make sense of the chaos—think of it as data therapy.
+
+Tidy Tuesday has been where I’ve sharpened my data science skills, especially with Shiny. It’s where I’ve built apps, learned from failed experiments, and discovered that interactivity can make even the driest data come alive. Plus, it’s way more fun to debug your code when you’re doing it with friends.
+
+So, today, I want to take what I’ve learned through work, Tidy Tuesday, and a bit of trial and error, and share it with you. Let’s dive in and see how Shiny can turn your data science skills up a notch!
+:::
+
+## What is Shiny?
+
+```{r ShinyInstall}
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
+install.packages("shiny")
+```
+
+-   Transforms static R code into dynamic, interactive experiences
+-   No need for HTML, CSS, or JavaScript
+-   Reactive: Automatically updates outputs when inputs change
+
+::: notes
+Alright, now that you know a bit about me, let’s dive into the star of the show: Shiny!
+
+First things first, let’s get Shiny installed. Open up R Studio and run the following code snippet: install.packages("shiny")
+
+Now, what exactly is Shiny? In a nutshell, Shiny is an R package that makes it incredibly easy to build interactive web applications straight from R. Think of it as the secret sauce that turns your static R code into dynamic, interactive experiences.
+
+With Shiny, you can create dashboards, data visualizations, and even full-blown web apps without needing to know HTML, CSS, or JavaScript. It’s like having a superpower that lets you bring your data to life with just a few lines of R code.
+
+Here’s the best part: Shiny apps are reactive. This means they can automatically update outputs when inputs change, making your applications feel responsive and alive. Imagine creating a data visualization that updates in real-time as you tweak parameters—pretty cool, right?
+
+But don’t just take my word for it. Throughout this session, we’ll get hands-on with Shiny and see how it can transform your data projects. By the end, you’ll be ready to create your own interactive masterpieces.
+
+So, are you ready to get your Shiny on? Let’s jump in and explore what makes Shiny so powerful and fun to use!
+:::
+
 ## Anatomy of a Shiny App
 
 ```{r ShinyCodeSnippet}
@@ -57,13 +103,18 @@ Hi! My name is Tony Galván
 #| eval: false
 #| code-line-numbers: false
 library(shiny)
-ui <- fluidPage(...)
-server <- function(input, output) {...}
+ui <- fluidPage(
+  ... # UI elements go here
+  )
+server <- function(input, output) {
+  ... # Server logic goes here
+  }
 shinyApp(ui, server)
 ```
 
-
 ```{r ShinyUIServer}
+#| fig-align: center
+
 shiny_flow_df <- tibble(
   xmin = c(0, 10),
   xmax = c(5, 15),
@@ -127,38 +178,119 @@ shiny_flow_df |>
   )
 ```
 
-## Bullets
+::: notes
+Now that we have Shiny installed, let’s take a look at the basic structure of a Shiny app. Here’s a simple example to get us started:
 
-When you click the **Render** button a document will be generated that includes:
+In this snippet, we have three main components:
 
--   Content authored with markdown
--   Output from executable code
+UI (User Interface): This is where you define the layout and appearance of your app. It’s like the front desk of a hotel—what the users see and interact with. Server: This is where the magic happens. The server function contains the instructions that tell your app how to respond to user inputs. Think of it as the hotel staff working behind the scenes to make sure everything runs smoothly. shinyApp: This function brings the UI and server together to create the Shiny app.
+
+Now, let’s look at the diagram on the slide. This diagram illustrates the interaction between the UI and the server:
+
+Inputs flow from the UI to the server. These are the actions or data provided by the user, like clicking a button or entering text. Outputs flow from the server back to the UI. These are the responses or results generated by the server, like updating a chart or displaying a message. This interaction is what makes Shiny apps reactive and dynamic. The server listens for changes in the inputs and updates the outputs accordingly, creating a seamless and interactive user experience.
+
+But how does Shiny work behind the scenes? When you run a Shiny app locally, it sets up a local web server on your machine. This server handles the communication between the UI and server components, making your app interactive.
+
+If you publish your Shiny app to a web server, it works similarly but on a larger scale. The web server hosts your app, allowing users to access it from anywhere with an internet connection. The server manages the inputs and outputs, ensuring that your app remains responsive and interactive.
+
+So, whether you’re running your app locally or on a web server, Shiny handles all the heavy lifting, allowing you to focus on building amazing interactive applications.
+
+Ready to see this in action? Let’s dive into building our first Shiny app together!
+:::
+
+## Create a Shiny App
+
+::::: columns
+::: {.column width="50%"}
+File \> New File
+
+-   Shiny Web App
+
+![](images/clipboard-1611009231.png){fig-align="left" height="350"}
+:::
+
+::: {.column width="50%"}
+Application name:
+
+-   **old-faithful**
+
+![](images/clipboard-4002331887.png){fig-align="center"}
+:::
+:::::
+
+::: notes
+Alright, it’s time to get our hands dirty and create our first Shiny app using R Studio. Follow these steps with me:
+
+1.  Open R Studio.
+
+2.  Go to the top menu and click on **File**.
+
+3.  Select **New File** from the dropdown menu.
+
+4.  Choose **Shiny Web App** from the options.
+
+5.  A dialog box will appear. Enter the Application Name as **‘old_faithful’**.
+
+6.  Click the **‘Create’** button.
+
+And just like that, R Studio will generate a basic Shiny app template for you. This template includes a simple user interface and server logic that we can build upon.
+
+Let’s take a moment to explore what R Studio has created for us. You’ll see two main files: **`ui.R`** and **`server.R`**. The **`ui.R`** file contains the code for the user interface, and the **`server.R`** file contains the server logic.
+
+By following these steps, you’ve just created the foundation of your first Shiny app. Now, let’s dive into the code and start customizing it to make it our own!
+:::
+
+## Run the Shiny App
+
+![](images/run_shiny.png){fig-align="center"}
+
+::: notes
+Now that we’ve created our first Shiny app, it’s time to see it in action! Here’s how you can run your Shiny app in R Studio:
+
+In R Studio, locate the ‘Run App’ button, which is usually at the top right corner of the script editor. Click on the ‘Run App’ button. When you click this button, R Studio does something pretty cool behind the scenes. It sets up a local web server on your machine. This local server is what makes your Shiny app interactive and responsive.
+
+Once the server is up and running, your app will launch in a new window. This window is where you can interact with your app, see the outputs, and test the functionality.
+
+So, what’s happening behind the scenes? Here’s a quick rundown:
+
+-   R Studio starts a local web server that hosts your Shiny app. This server handles all the communication between the UI and server components of your app.
+
+-   As you interact with the app (e.g., entering data, clicking buttons), the server processes these inputs and updates the outputs in real-time.
+
+-   The app runs in a web browser window, giving you a preview of how it will look and behave when deployed on a web server. By running your app locally, you can develop and test it before sharing it with others. It’s a great way to ensure everything works as expected and to make any necessary tweaks.
+
+Ready to give it a try? Click that ‘Run App’ button and watch your Shiny app come to life!
+:::
+
+## Old Faithful Geyser Data
 
 ```{r}
-library(tidyverse)
-
-theme_set(theme_light())
-
-mtcars |>
-  ggplot(aes(x = mpg, y = hp, color = disp)) +
-  geom_point()
-```
-
-## Code
-
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-# sliderInput("bins", "Number of bins:", 
-#             min = 1, max = 50, value = 30)
-# plotOutput("distPlot")
+sliderInput("bins", "Number of bins:",
+            min = 1, max = 50, value = 30)
+plotOutput("distPlot")
 ```
 
 ```{r}
 #| context: server
-# output$distPlot <- renderPlot({
-#   x <- faithful[, 2]  # Old Faithful Geyser data
-#   bins <- seq(min(x), max(x), length.out = input$bins + 1)
-#   hist(x, breaks = bins, col = 'darkgray', border = 'white')
-# })
+output$distPlot <- renderPlot({
+  x <- faithful[, 2]  # Old Faithful Geyser data
+  bins <- seq(min(x), max(x), length.out = input$bins + 1)
+  hist(x, breaks = bins, col = 'darkgray', border = 'white')
+})
 ```
+
+::: notes
+Now that we’ve run our Shiny app, let’s take a closer look at what it does and how it works. Our app is a simple yet powerful example that visualizes the Old Faithful Geyser data. Here’s what you’ll see:
+
+-   The app has a clear and descriptive title at the top: ‘Old Faithful Geyser Data’. This lets users know exactly what the app is about.
+
+-   Below the title, there’s a slider input labeled ‘Number of bins’. This slider allows users to adjust the number of bins in the histogram. The range is from 1 to 50, with a default value set to 30. This interactivity lets users explore the data in different levels of granularity.
+
+-   The main feature of the app is a histogram plot of the Old Faithful Geyser eruption durations. This plot is generated using base R graphics. As users adjust the slider, the histogram updates in real-time to reflect the new number of bins, providing an immediate visual feedback.
+
+So, how does this all work together? When you move the slider, the input value is sent to the server. The server then recalculates the histogram with the specified number of bins and sends the updated plot back to the UI. This seamless interaction is what makes Shiny apps so engaging and dynamic.
+
+By exploring this app, you can see how Shiny makes it easy to add interactivity to your data visualizations. It’s a great starting point for building more complex and customized applications.
+
+Ready to build on this foundation and create something even more exciting? Let’s dive deeper into Shiny’s capabilities!
+:::
