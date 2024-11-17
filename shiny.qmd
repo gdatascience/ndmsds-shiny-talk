@@ -294,3 +294,86 @@ By exploring this app, you can see how Shiny makes it easy to add interactivity 
 
 Ready to build on this foundation and create something even more exciting? Let’s dive deeper into Shiny’s capabilities!
 :::
+
+## Old Faithful Geyser App
+### [Eruption Duration vs. Waiting Time]{style="color: #74c947"}
+
+```{r}
+#| panel: sidebar
+sliderInput(
+  "duration", 
+  "Eruption Duration (minutes):",
+  min = min(faithful$eruptions), 
+  max = max(faithful$eruptions), 
+  value = c(min(faithful$eruptions), max(faithful$eruptions))
+)
+sliderInput(
+  "waiting", 
+  "Waiting Time (minutes):",
+  min = min(faithful$waiting), 
+  max = max(faithful$waiting), 
+  value = c(min(faithful$waiting), max(faithful$waiting))
+)
+```
+
+```{r}
+#| panel: fill
+plotly::plotlyOutput("scatterPlot")
+```
+
+```{r}
+#| context: server
+library(plotly)
+library(ggplot2)
+library(dplyr)
+output$scatterPlot <- 
+  renderPlotly({
+    ggplotly(
+      faithful |>
+        filter(
+          eruptions >= input$duration[1],
+          eruptions <= input$duration[2],
+          waiting >= input$waiting[1],
+          waiting <= input$waiting[2]
+        ) |>
+        ggplot(aes(x = eruptions, y = waiting)) +
+        geom_point(
+          color = "#74c947"
+        ) +
+        geom_smooth(
+          method = "lm",
+          se = FALSE,
+          color = "#9471f6",
+          lty = 2
+        ) +
+        labs(
+          x = "Eruption Duration (minutes)",
+          y = "Waiting Time (minutes)"
+        ) +
+        theme_light() +
+        theme(
+          panel.background = element_rect(
+            fill = "#363f41",
+            color = "#363f41"
+          ),
+          panel.border = element_rect(
+            color = "#363f41"
+          ),
+          plot.background = element_rect(
+            fill = "#363f41",
+            color = "#363f41"
+          ),
+          text = element_text(
+            family = "Avenir Next",
+            color = "white"
+          ),
+          axis.text = element_text(
+            family = "Avenir Next",
+            color = "white"
+          ),
+          panel.grid = element_blank(),
+          axis.ticks = element_blank()
+        )
+    )
+  })
+```
