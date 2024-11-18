@@ -207,7 +207,7 @@ Tony Galvan
   <p class="date">2024-12-05</p>
 </section>
 <section id="introduction" class="slide level2">
-<h2>Introduction</h2>
+<h2>Introduction <!-- slide_02 --></h2>
 <h3 id="university-of-notre-dame"><span style="color: #74c947">University of Notre Dame</span></h3>
 <ul>
 <li>1999 B.B.A. Management Information Systems</li>
@@ -232,7 +232,7 @@ Tony Galvan
       }</style></aside>
 </section>
 <section id="introduction-continued" class="slide level2">
-<h2>Introduction (continued)</h2>
+<h2>Introduction (continued) <!-- slide_03 --></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="acorns"><span style="color: #74c947">Acorns</span></h3>
@@ -274,7 +274,7 @@ Tony Galvan
       }</style></aside>
 </section>
 <section id="what-is-shiny" class="slide level2">
-<h2>What is Shiny?</h2>
+<h2>What is Shiny? <!-- slide_04 --></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"shiny"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -304,7 +304,7 @@ Tony Galvan
       }</style></aside>
 </section>
 <section id="anatomy-of-a-shiny-app" class="slide level2">
-<h2>Anatomy of a Shiny App</h2>
+<h2>Anatomy of a Shiny App <!-- slide_05 --></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
 <span id="cb2-2"><a href="" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
@@ -339,7 +339,7 @@ Tony Galvan
       }</style></aside>
 </section>
 <section id="create-a-shiny-app" class="slide level2">
-<h2>Create a Shiny App</h2>
+<h2>Create a Shiny App <!-- slide_06 --></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>File &gt; New File</p>
@@ -414,7 +414,7 @@ Tony Galvan
       }</style></aside>
 </section>
 <section id="old-faithful-geyser-data" class="slide level2">
-<h2>Old Faithful Geyser Data</h2>
+<h2>Old Faithful Geyser Data <!-- slide_07 --></h2>
 <div class="cell">
 <div class="cell-output-display">
 <div class="form-group shiny-input-container">
@@ -449,7 +449,7 @@ Tony Galvan
       }</style></aside>
 </section>
 <section id="old-faithful-geyser-app" class="slide level2">
-<h2>Old Faithful Geyser App</h2>
+<h2>Old Faithful Geyser App <!-- slide_09 --></h2>
 <h3 id="eruption-duration-vs.-waiting-time"><span style="color: #74c947">Eruption Duration vs.&nbsp;Waiting Time</span></h3>
 <div class="layout-sidebar layout-sidebar-left">
 <div class="cell panel-sidebar">
@@ -472,6 +472,19 @@ Tony Galvan
 </div>
 </div>
 </div>
+<aside class="notes">
+<p>Now that we’ve explored the basic Old Faithful Geyser app, let’s take it up a notch and create a more advanced version. In this enhanced app, we’ll visualize the relationship between eruption duration and waiting time using a scatter plot.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <p>
 <script type="application/shiny-prerendered" data-context="server">
 output$distPlot <- renderPlot({

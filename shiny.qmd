@@ -17,7 +17,7 @@ library(tidyverse)
 theme_set(theme_void(base_family = "Avenir Next"))
 ```
 
-## Introduction
+## Introduction <!-- slide_02 -->
 
 ### [University of Notre Dame]{style="color: #74c947"}
 
@@ -36,7 +36,7 @@ Notre Dame didn’t just give me degrees to hang on the wall—it gave me a stro
 That foundation is why I’m here today: to help you level up with Shiny, just like I’ve done in my own career.
 :::
 
-## Introduction (continued)
+## Introduction (continued) <!-- slide_03 -->
 
 ::::: columns
 ::: {.column width="50%"}
@@ -67,7 +67,7 @@ Tidy Tuesday has been where I’ve sharpened my data science skills, especially 
 So, today, I want to take what I’ve learned through work, Tidy Tuesday, and a bit of trial and error, and share it with you. Let’s dive in and see how Shiny can turn your data science skills up a notch!
 :::
 
-## What is Shiny?
+## What is Shiny? <!-- slide_04 -->
 
 ```{r ShinyInstall}
 #| echo: true
@@ -96,7 +96,7 @@ But don’t just take my word for it. Throughout this session, we’ll get hands
 So, are you ready to get your Shiny on? Let’s jump in and explore what makes Shiny so powerful and fun to use!
 :::
 
-## Anatomy of a Shiny App
+## Anatomy of a Shiny App <!-- slide_05 -->
 
 ```{r ShinyCodeSnippet}
 #| echo: true
@@ -198,7 +198,7 @@ So, whether you’re running your app locally or on a web server, Shiny handles 
 Ready to see this in action? Let’s dive into building our first Shiny app together!
 :::
 
-## Create a Shiny App
+## Create a Shiny App <!-- slide_06 -->
 
 ::::: columns
 ::: {.column width="50%"}
@@ -262,7 +262,7 @@ So, what’s happening behind the scenes? Here’s a quick rundown:
 Ready to give it a try? Click that ‘Run App’ button and watch your Shiny app come to life!
 :::
 
-## Old Faithful Geyser Data
+## Old Faithful Geyser Data <!-- slide_07 -->
 
 ```{r}
 sliderInput("bins", "Number of bins:",
@@ -295,7 +295,8 @@ By exploring this app, you can see how Shiny makes it easy to add interactivity 
 Ready to build on this foundation and create something even more exciting? Let’s dive deeper into Shiny’s capabilities!
 :::
 
-## Old Faithful Geyser App
+## Old Faithful Geyser App <!-- slide_09 -->
+
 ### [Eruption Duration vs. Waiting Time]{style="color: #74c947"}
 
 ```{r}
@@ -377,3 +378,7 @@ output$scatterPlot <-
     )
   })
 ```
+
+::: notes
+Now that we’ve explored the basic Old Faithful Geyser app, let’s take it up a notch and create a more advanced version. In this enhanced app, we’ll visualize the relationship between eruption duration and waiting time using a scatter plot.
+:::
