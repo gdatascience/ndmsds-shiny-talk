@@ -342,7 +342,7 @@ output$scatterPlot <-
           color = "#74c947"
         ) +
         geom_smooth(
-          method = "lm",
+          method = "lm", formula = y ~ x,
           se = FALSE,
           color = "#9471f6",
           lty = 2
