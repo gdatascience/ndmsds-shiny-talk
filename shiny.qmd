@@ -2,20 +2,16 @@
 title: "Get Your Shiny On"
 subtitle: "Turning R Code into Interactive Gold!"
 date: "2024-12-05"
-author: "Tony Galvan"
+author: "Tony Galván"
 title-slide-attributes: 
-  data-notes: "Hi everyone! My name is Tony Galvan, and I’m excited to share one of my favorite R tools with you today—Shiny. I’ve titled this session 'Get Your Shiny On: Turning R Code into Interactive Gold!' because Shiny has this amazing ability to transform static code into something dynamic and engaging. Whether you’re building dashboards, apps, or just experimenting with interactivity, Shiny opens up so many possibilities. We’ll keep it fun and hands-on, so by the end of this session, you’ll have the confidence to start building your own Shiny apps. Before we dive in, please go ahead and launch R Studio on your computers. This is going to be a hands-on session, and we’ll be coding together. But before we dive into all that, let me tell you a little about myself."
+  data-notes: "Hi everyone! My name is Tony Galván, and I’m excited to share one of my favorite R tools with you today — Shiny. I’ve titled this session 'Get Your Shiny On: Turning R Code into Interactive Gold!' because Shiny has this amazing ability to transform static code into something dynamic and engaging. Whether you’re building dashboards, apps, or just experimenting with interactivity, Shiny opens up so many possibilities. We’ll keep it fun and hands-on, so by the end of this session, you’ll have the confidence to start building your own Shiny apps. Before we get started, let’s do a quick roll call. In the chat, could everyone share where they’re tuning in from? It’s always great to see the variety of locations represented in these sessions. Also, make sure you’ve got RStudio open and ready to go. This is going to be a hands-on session, and we’ll be coding together. Now, before we jump into the Shiny magic, let me tell you a little about myself."
 format:
   revealjs: 
     theme: acorns.scss
+    code-line-numbers: false
 editor: visual
 server: shiny
 ---
-
-```{r}
-library(tidyverse)
-theme_set(theme_void(base_family = "Avenir Next"))
-```
 
 ## Introduction <!-- slide_02 -->
 
@@ -27,13 +23,13 @@ theme_set(theme_void(base_family = "Avenir Next"))
 ![](images/graduation.jpg){fig-align="center"}
 
 ::: notes
-You know, they say lightning doesn’t strike twice—but I managed to graduate from Notre Dame not once, but twice. As a proud Double Domer, I earned my B.B.A. in Management Information Systems back in 1999, and then I came back for round two, earning my M.S. in Data Science in 2019.
+You know, they say lightning doesn’t strike twice—but apparently, diplomas from Notre Dame do. I’m a proud Double Domer, having graduated not once, but twice. The first time was back in 1999 with a Bachelor of Business Administration in Management Information Systems, and then I made my triumphant return in 2019 to earn a Master of Science in Data Science.
 
-Here on this slide are two photos that mean a lot to me. The first is from my 1999 graduation with my dad — look at those baby faces! — and the second is from 2019, where I was lucky to share the day with my dad again, plus my wife and kids.
+On this slide, you’ll see two photos that are pretty special to me. The one from 1999 is with my dad—look at those fresh faces, full heads of hair, and zero wrinkles. The 2019 photo is a bit more… experienced. This time, I was lucky enough to share the day not just with my dad again, but also my wife and kids.
 
-Notre Dame didn’t just give me degrees to hang on the wall—it gave me a strong foundation in R, analytics, and machine learning. And let’s be honest, it also taught me how to survive late-night coding sessions fueled by coffee and maybe a few too many snacks.
+Notre Dame didn’t just give me degrees—it gave me a crash course in juggling deadlines, debugging code at 2 a.m., and still showing up to work the next morning ready to tackle the day. It’s also where I built the foundation in R, analytics, and machine learning that shaped my career.
 
-That foundation is why I’m here today: to help you level up with Shiny, just like I’ve done in my own career.
+And while Notre Dame couldn’t keep me young forever, it did teach me how to keep learning—and that’s what I’m here to share with you today.
 :::
 
 ## Introduction (continued) <!-- slide_03 -->
@@ -58,13 +54,13 @@ That foundation is why I’m here today: to help you level up with Shiny, just l
 :::::
 
 ::: notes
-So, what am I up to these days? Well, I work as an Analytics Engineer and Data Analyst at Acorns, where I get to wrangle data, build dashboards, and automate workflows. It’s like solving puzzles every day, except the puzzles sometimes crash and throw error messages at you.
+So, what am I up to these days? Well, I work as an Analytics Engineer and Data Analyst at Acorns. My day-to-day involves wrangling data, building dashboards, and automating workflows. Basically, I’m a professional problem solver—except my puzzles occasionally yell at me in the form of cryptic error messages.
 
-But beyond work, I’m also the host of weekly Tidy Tuesday sessions. These are casual gatherings where we take random datasets, explore them, and try to make sense of the chaos—think of it as data therapy.
+Outside of work, I run weekly Tidy Tuesday sessions. These are casual get-togethers where we take random datasets and try to uncover insights—or at least find a halfway decent visualization. It’s part data exploration, part group therapy for R users.
 
-Tidy Tuesday has been where I’ve sharpened my data science skills, especially with Shiny. It’s where I’ve built apps, learned from failed experiments, and discovered that interactivity can make even the driest data come alive. Plus, it’s way more fun to debug your code when you’re doing it with friends.
+Tidy Tuesday is where I’ve really leveled up my data science game. It’s been a playground for learning, a laboratory for failed experiments, and a reminder that even the most boring datasets can shine with a little creativity. It’s also where I discovered that debugging is way more tolerable when someone else is suffering alongside you.
 
-So, today, I want to take what I’ve learned through work, Tidy Tuesday, and a bit of trial and error, and share it with you. Let’s dive in and see how Shiny can turn your data science skills up a notch!
+Today, I’m excited to share some of the lessons I’ve learned through work, Tidy Tuesday, and a whole lot of trial and error. Let’s jump in and see how Shiny can add a whole new dimension to your data science toolkit!
 :::
 
 ## What is Shiny? <!-- slide_04 -->
@@ -72,48 +68,70 @@ So, today, I want to take what I’ve learned through work, Tidy Tuesday, and a 
 ```{r ShinyInstall}
 #| echo: true
 #| eval: false
-#| code-line-numbers: false
+
 install.packages("shiny")
 ```
+
+::: notes
+Alright, now that you know a bit about me, it’s time to focus on the real star of today’s show: Shiny!
+
+Before we dive into the details, let me ask you a quick question: how familiar are you with Shiny? Drop your answer in the chat—are you a:
+
+Shiny newbie (nothing at all),
+Homework hero (just what we did for class),
+Casual tinkerer (a little work experience),
+Or a Shiny master (you eat reactive programming for breakfast)?
+While you’re sharing, let’s make sure everyone’s ready to roll. Open up RStudio and install Shiny by running this code snippet:
+install.packages("shiny")
+:::
+
+. . .
 
 -   Transforms static R code into dynamic, interactive experiences
 -   No need for HTML, CSS, or JavaScript
 -   Reactive: Automatically updates outputs when inputs change
 
 ::: notes
-Alright, now that you know a bit about me, let’s dive into the star of the show: Shiny!
+So, what is Shiny? In a nutshell, it’s an R package that lets you build interactive web applications right from R. No HTML, CSS, or JavaScript knowledge required—it’s like a shortcut to web development greatness.
 
-First things first, let’s get Shiny installed. Open up R Studio and run the following code snippet: install.packages("shiny")
+With Shiny, you can create dashboards, visualizations, and even full-fledged web apps. And the best part? It’s reactive, meaning your app automatically updates when inputs change. It’s like magic, but with fewer wands and more parentheses.
 
-Now, what exactly is Shiny? In a nutshell, Shiny is an R package that makes it incredibly easy to build interactive web applications straight from R. Think of it as the secret sauce that turns your static R code into dynamic, interactive experiences.
-
-With Shiny, you can create dashboards, data visualizations, and even full-blown web apps without needing to know HTML, CSS, or JavaScript. It’s like having a superpower that lets you bring your data to life with just a few lines of R code.
-
-Here’s the best part: Shiny apps are reactive. This means they can automatically update outputs when inputs change, making your applications feel responsive and alive. Imagine creating a data visualization that updates in real-time as you tweak parameters—pretty cool, right?
-
-But don’t just take my word for it. Throughout this session, we’ll get hands-on with Shiny and see how it can transform your data projects. By the end, you’ll be ready to create your own interactive masterpieces.
-
-So, are you ready to get your Shiny on? Let’s jump in and explore what makes Shiny so powerful and fun to use!
+We’re going to get hands-on with Shiny today, and by the end of this session, you’ll be ready to build your own interactive masterpieces. So, what do you say—ready to get your Shiny on?
 :::
 
-## Anatomy of a Shiny App <!-- slide_05 -->
+## Anatomy of a Shiny App <!-- slide_05 --> {.smaller}
 
 ```{r ShinyCodeSnippet}
 #| echo: true
 #| eval: false
-#| code-line-numbers: false
+
 library(shiny)
-ui <- fluidPage(
-  ... # UI elements go here
-  )
+ui <- ... # UI elements go here
+
 server <- function(input, output) {
   ... # Server logic goes here
-  }
+}
+
 shinyApp(ui, server)
 ```
 
+::: notes
+Alright, we’ve got Shiny installed—congrats! You’re officially ready to build something awesome. But before we jump into coding, let’s break down the basic anatomy of a Shiny app. Think of it as a crash course in app biology.
+
+First up, there are three main components:
+
+UI (User Interface): This is like the shiny (pun intended) hotel lobby—it’s what users see and interact with. Buttons, sliders, and text boxes live here, welcoming your users like a charming front desk concierge.
+Server: Behind the scenes, this is where the real magic happens. If the UI is the lobby, the server is the overworked hotel staff making sure the Wi-Fi, room service, and weirdly specific guest requests all work seamlessly.
+shinyApp: This is the matchmaker that brings the UI and server together, turning your code into a fully functional app.
+:::
+
+. . .
+
 ```{r ShinyUIServer}
 #| fig-align: center
+
+library(tidyverse)
+theme_set(theme_void(base_family = "Avenir Next"))
 
 shiny_flow_df <- tibble(
   xmin = c(0, 10),
@@ -179,23 +197,17 @@ shiny_flow_df |>
 ```
 
 ::: notes
-Now that we have Shiny installed, let’s take a look at the basic structure of a Shiny app. Here’s a simple example to get us started:
+Now, check out the diagram on the slide. It’s like the flowchart version of a rom-com:
 
-In this snippet, we have three main components:
+Inputs from the UI go to the server. Imagine your user clicking a button or entering text—it’s like placing an order at a coffee shop.
+Outputs flow back from the server to the UI. This is your latte (or chart, or table) being served in all its glory.
+This back-and-forth makes Shiny apps reactive. The server is always listening for changes in inputs and updating the outputs, creating that smooth, interactive experience.
 
-UI (User Interface): This is where you define the layout and appearance of your app. It’s like the front desk of a hotel—what the users see and interact with. Server: This is where the magic happens. The server function contains the instructions that tell your app how to respond to user inputs. Think of it as the hotel staff working behind the scenes to make sure everything runs smoothly. shinyApp: This function brings the UI and server together to create the Shiny app.
+So how does all this magic work? When you run a Shiny app locally, it sets up a mini web server on your computer. Your machine becomes both the chef and the diner, cooking up data and serving it to yourself.
 
-Now, let’s look at the diagram on the slide. This diagram illustrates the interaction between the UI and the server:
+If you publish your app to a web server, things get fancier. The web server hosts your app, and anyone with an internet connection can use it. It’s like opening your own restaurant—except no health inspections.
 
-Inputs flow from the UI to the server. These are the actions or data provided by the user, like clicking a button or entering text. Outputs flow from the server back to the UI. These are the responses or results generated by the server, like updating a chart or displaying a message. This interaction is what makes Shiny apps reactive and dynamic. The server listens for changes in the inputs and updates the outputs accordingly, creating a seamless and interactive user experience.
-
-But how does Shiny work behind the scenes? When you run a Shiny app locally, it sets up a local web server on your machine. This server handles the communication between the UI and server components, making your app interactive.
-
-If you publish your Shiny app to a web server, it works similarly but on a larger scale. The web server hosts your app, allowing users to access it from anywhere with an internet connection. The server manages the inputs and outputs, ensuring that your app remains responsive and interactive.
-
-So, whether you’re running your app locally or on a web server, Shiny handles all the heavy lifting, allowing you to focus on building amazing interactive applications.
-
-Ready to see this in action? Let’s dive into building our first Shiny app together!
+So, are you ready to roll up your sleeves and build your first Shiny app? Let’s make some interactive magic happen!
 :::
 
 ## Create a Shiny App <!-- slide_06 -->
@@ -212,7 +224,7 @@ File \> New File
 ::: {.column width="50%"}
 Application name:
 
--   **old-faithful**
+-   **old_faithful**
 
 ![](images/clipboard-4002331887.png){fig-align="center"}
 :::
@@ -231,11 +243,15 @@ Alright, it’s time to get our hands dirty and create our first Shiny app using
 
 5.  A dialog box will appear. Enter the Application Name as **‘old_faithful’**.
 
-6.  Click the **‘Create’** button.
+6.  For Application Type, select **‘Single File (app.R)’**. This option is great for simple apps and is perfect for our first Shiny app.
+
+7.  Click the **‘Browse’** button to choose the directory where you want to save your app.
+
+8.  Click the **‘Create’** button.
 
 And just like that, R Studio will generate a basic Shiny app template for you. This template includes a simple user interface and server logic that we can build upon.
 
-Let’s take a moment to explore what R Studio has created for us. You’ll see two main files: **`ui.R`** and **`server.R`**. The **`ui.R`** file contains the code for the user interface, and the **`server.R`** file contains the server logic.
+Let’s take a moment to explore what R Studio has created for us. You'll see two main sections in the **‘app.R’** file: the UI and server components. The UI section defines the layout of the app, while the server section contains the logic to make the app interactive.
 
 By following these steps, you’ve just created the foundation of your first Shiny app. Now, let’s dive into the code and start customizing it to make it our own!
 :::
@@ -273,7 +289,7 @@ plotOutput("distPlot")
 ```{r}
 #| context: server
 output$distPlot <- renderPlot({
-  x <- faithful[, 2]  # Old Faithful Geyser data
+  x <- faithful[, 2]
   bins <- seq(min(x), max(x), length.out = input$bins + 1)
   hist(x, breaks = bins, col = 'darkgray', border = 'white')
 })
@@ -295,7 +311,106 @@ By exploring this app, you can see how Shiny makes it easy to add interactivity 
 Ready to build on this foundation and create something even more exciting? Let’s dive deeper into Shiny’s capabilities!
 :::
 
-## Old Faithful Geyser App <!-- slide_09 -->
+## Shiny Layouts <!-- slide_08 -->
+
+```{r ShinyLayouts}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "1-4,11"
+
+fluidPage(
+  titlePanel("Old Faithful Geyser Data"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput(
+        inputId = "bins",
+        label = "Number of bins:",
+        ... # Other arguments (e.g., min, max, value)
+      )
+    ),
+    mainPanel(
+      plotOutput("distPlot")
+    )
+  )
+)
+
+```
+
+[Shiny Layout Gallery](https://shiny.posit.co/r/layouts/)
+
+::: notes
+Let’s talk about the foundation of any Shiny app: the layout. A good layout isn’t just about looking pretty—it’s what makes your app intuitive and easy to use. If the layout is the stage, your data is the star, and Shiny helps set the scene beautifully.
+
+The most popular layout in Shiny is fluidPage. It’s like the stretchy yoga pants of app design—it adapts effortlessly to different screen sizes, from desktops to mobile phones. Whether your users are on a giant monitor or squinting at their phone, fluidPage keeps your app looking sharp.
+
+For apps that need tabs, navbarPage is a solid choice. It’s perfect for breaking down complex content into bite-sized, navigable pieces. If you’re designing an app with controls on the side—like sliders or input boxes—sidebarLayout is your go-to.
+
+Take a look at this simple code snippet:
+
+Line 1: fluidPage() is the main wrapper that defines a responsive, single-page layout. Everything you see in the app will live inside this.
+Line 2: titlePanel() is the header—it’s like your app’s welcome mat, setting the tone with a title.
+Line 3: sidebarLayout() creates the structure for a side panel and main content area. Think of it like a two-column newspaper: controls on one side, results on the other.
+Line 4: Inside sidebarLayout(), sidebarPanel() is where the controls go—sliders, buttons, dropdowns, and anything your user interacts with.
+Line 11: mainPanel() is for the main attraction—charts, tables, or whatever outputs your app is generating.
+The magic of Shiny layouts is how flexible and intuitive they are. Not sure where to start? Check out Shiny’s layout gallery, which is packed with examples to spark your creativity.
+
+And here’s the key takeaway: a thoughtful layout doesn’t just make your app look polished—it makes it more effective, drawing your audience into the story you’re telling with your data.
+
+Now, let’s dive into the interactive elements that bring these layouts to life.
+:::
+
+## Shiny Widgets <!-- slide_09 -->
+
+```{r ShinyUIWidgets}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "5-9"
+
+fluidPage(
+  titlePanel("Old Faithful Geyser Data"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput(
+        inputId = "bins",
+        label = "Number of bins:",
+        ... # Other arguments (e.g., min, max, value)
+      )
+    ),
+    mainPanel(
+      plotOutput("distPlot")
+    )
+  )
+)
+
+```
+
+[Shiny Widgets Gallery](https://shiny.posit.co/r/gallery/widgets/widget-gallery/)
+
+::: notes
+Once you’ve got your layout sorted, it’s time to make your app come alive with widgets. Widgets are the interactive elements that let your users explore, filter, and engage with your data. Think of them as the knobs, levers, and buttons of your app—simple to use but incredibly powerful.
+
+Shiny offers a treasure trove of widgets. Here are a few crowd favorites:
+
+sliderInput: Ideal for filtering data across a range. Need your users to zoom in on a specific slice of data? Sliders make it smooth and intuitive.
+radioButtons: Perfect for when you want users to pick one option from a set—no room for fence-sitting here!
+textInput: Allows users to enter custom text, whether it’s a search term, label, or a witty one-liner.
+And, of course, dropdowns, checkboxes, and action buttons round out the collection to cover almost every need.
+Let’s peek at a simple example:
+
+Line 5: sliderInput is the widget itself. It sets up a slider to let users adjust the number of bins in a histogram, for instance.
+inputId: This is the unique name you’ll use in your server code to refer to this widget.
+label: What your user sees next to the slider—think of it as the slider’s name tag.
+min, max, and value: These set the range of the slider and its starting position.
+And the best part? Widgets don’t just sit there looking pretty—they’re fully reactive. When a user interacts with a widget, your Shiny app instantly updates outputs based on their input. This is what makes Shiny apps feel alive and responsive.
+
+If you’re looking for inspiration or want to see the full range of widgets, check out Shiny’s widget gallery. It’s like a candy store for data scientists—packed with ideas and examples.
+
+Here’s a pro tip: start simple. Use one or two widgets to explore your data and get comfortable with their behavior. Once you’ve got the hang of it, you can start layering on more complex interactions.
+
+Speaking of getting comfortable, it’s time to roll up our sleeves and get hands-on. Let’s tackle a challenge and bring some widgets to life!
+:::
+
+## Old Faithful Geyser App <!-- slide_10 -->
 
 ### [Eruption Duration vs. Waiting Time]{style="color: #74c947"}
 
@@ -380,5 +495,23 @@ output$scatterPlot <-
 ```
 
 ::: notes
-Now that we’ve explored the basic Old Faithful Geyser app, let’s take it up a notch and create a more advanced version. In this enhanced app, we’ll visualize the relationship between eruption duration and waiting time using a scatter plot.
+Alright, it’s time for a challenge! We’re going to take the default Old Faithful histogram app that comes with Shiny and transform it into something much more interactive and powerful.
+
+Here’s the goal: adapt the default app to create an interactive scatter plot of the Old Faithful dataset, showing eruption durations on the x-axis and waiting times on the y-axis. We’ll be enhancing it with:
+
+-   Sliders to filter values on both axes.
+-   Plot interactivity using ggplot2 for visuals and Plotly for zooming, panning, and hovering.
+
+Once your group gets the basics working, you can earn bonus points by tackling these advanced challenges:
+
+1.  Add a dropdown: Allow users to choose a color for the points on the scatter plot.
+2.  Dynamic title: Update the plot title based on the slider values.
+3.  Summary table: Display average, minimum, and maximum values for the filtered data.
+4.  Styling: Use custom CSS or themes to make the app look polished and professional.
+
+We’ll break into small groups, and each group will work on adapting the default app into this enhanced version. I’ve included all the hints and documentation you’ll need, but feel free to ask me for help if you get stuck.
+
+Remember, this is a creative and collaborative exercise. Even if you’re new to Shiny, give it a try and see how much progress your group can make.
+
+At the end, we’ll come back together to showcase what you’ve built and discuss what you learned. Good luck—let’s get coding!
 :::
