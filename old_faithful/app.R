@@ -11,7 +11,7 @@ library(shiny)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
-
+  theme = bslib::bs_theme(bootswatch = "darkly"),
     # Application title
     titlePanel("Old Faithful Geyser Data"),
 

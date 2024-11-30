@@ -47,7 +47,7 @@ And while Notre Dame couldn’t keep me young forever, it did teach me how to ke
 ::: {.column width="50%"}
 ### [Tidy Tuesday]{style="color: #74c947"}
 
--   Tuesdays \@ 11AM PST on [Zoom](https://notredame.zoom.us/j/93246968828?pwd=T2k0QUFKNkxvMkV2ekZrejdpdTJIdz09)
+-   Tuesdays \@ 11AM PST on [Zoom](https://notredame.zoom.us/j/93246968828?pwd=T2k0QUFKNkxvMkV2ekZrejdpdTJIdz09){target="_blank"}
 
 ![](https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/static/tt_logo.png){fig-align="center"}
 :::
@@ -77,12 +77,7 @@ Alright, now that you know a bit about me, it’s time to focus on the real star
 
 Before we dive into the details, let me ask you a quick question: how familiar are you with Shiny? Drop your answer in the chat—are you a:
 
-Shiny newbie (nothing at all),
-Homework hero (just what we did for class),
-Casual tinkerer (a little work experience),
-Or a Shiny master (you eat reactive programming for breakfast)?
-While you’re sharing, let’s make sure everyone’s ready to roll. Open up RStudio and install Shiny by running this code snippet:
-install.packages("shiny")
+Shiny newbie (nothing at all), Homework hero (just what we did for class), Casual tinkerer (a little work experience), Or a Shiny master (you eat reactive programming for breakfast)? While you’re sharing, let’s make sure everyone’s ready to roll. Open up RStudio and install Shiny by running this code snippet: install.packages("shiny")
 :::
 
 . . .
@@ -107,11 +102,9 @@ We’re going to get hands-on with Shiny today, and by the end of this session, 
 
 library(shiny)
 ui <- ... # UI elements go here
-
 server <- function(input, output) {
   ... # Server logic goes here
 }
-
 shinyApp(ui, server)
 ```
 
@@ -120,9 +113,7 @@ Alright, we’ve got Shiny installed—congrats! You’re officially ready to bu
 
 First up, there are three main components:
 
-UI (User Interface): This is like the shiny (pun intended) hotel lobby—it’s what users see and interact with. Buttons, sliders, and text boxes live here, welcoming your users like a charming front desk concierge.
-Server: Behind the scenes, this is where the real magic happens. If the UI is the lobby, the server is the overworked hotel staff making sure the Wi-Fi, room service, and weirdly specific guest requests all work seamlessly.
-shinyApp: This is the matchmaker that brings the UI and server together, turning your code into a fully functional app.
+UI (User Interface): This is like the shiny (pun intended) hotel lobby—it’s what users see and interact with. Buttons, sliders, and text boxes live here, welcoming your users like a charming front desk concierge. Server: Behind the scenes, this is where the real magic happens. If the UI is the lobby, the server is the overworked hotel staff making sure the Wi-Fi, room service, and weirdly specific guest requests all work seamlessly. shinyApp: This is the matchmaker that brings the UI and server together, turning your code into a fully functional app.
 :::
 
 . . .
@@ -199,9 +190,7 @@ shiny_flow_df |>
 ::: notes
 Now, check out the diagram on the slide. It’s like the flowchart version of a rom-com:
 
-Inputs from the UI go to the server. Imagine your user clicking a button or entering text—it’s like placing an order at a coffee shop.
-Outputs flow back from the server to the UI. This is your latte (or chart, or table) being served in all its glory.
-This back-and-forth makes Shiny apps reactive. The server is always listening for changes in inputs and updating the outputs, creating that smooth, interactive experience.
+Inputs from the UI go to the server. Imagine your user clicking a button or entering text—it’s like placing an order at a coffee shop. Outputs flow back from the server to the UI. This is your latte (or chart, or table) being served in all its glory. This back-and-forth makes Shiny apps reactive. The server is always listening for changes in inputs and updating the outputs, creating that smooth, interactive experience.
 
 So how does all this magic work? When you run a Shiny app locally, it sets up a mini web server on your computer. Your machine becomes both the chef and the diner, cooking up data and serving it to yourself.
 
@@ -291,7 +280,9 @@ plotOutput("distPlot")
 output$distPlot <- renderPlot({
   x <- faithful[, 2]
   bins <- seq(min(x), max(x), length.out = input$bins + 1)
-  hist(x, breaks = bins, col = 'darkgray', border = 'white')
+  hist(x, breaks = bins, col = 'darkgray', border = 'white',
+       xlab = 'Waiting time to next eruption (in mins)',
+       main = 'Histogram of waiting times')
 })
 ```
 
@@ -336,7 +327,7 @@ fluidPage(
 
 ```
 
-[Shiny Layout Gallery](https://shiny.posit.co/r/layouts/)
+[Shiny Layout Gallery](https://shiny.posit.co/r/layouts/){target="_blank"}
 
 ::: notes
 Let’s talk about the foundation of any Shiny app: the layout. A good layout isn’t just about looking pretty—it’s what makes your app intuitive and easy to use. If the layout is the stage, your data is the star, and Shiny helps set the scene beautifully.
@@ -347,12 +338,7 @@ For apps that need tabs, navbarPage is a solid choice. It’s perfect for breaki
 
 Take a look at this simple code snippet:
 
-Line 1: fluidPage() is the main wrapper that defines a responsive, single-page layout. Everything you see in the app will live inside this.
-Line 2: titlePanel() is the header—it’s like your app’s welcome mat, setting the tone with a title.
-Line 3: sidebarLayout() creates the structure for a side panel and main content area. Think of it like a two-column newspaper: controls on one side, results on the other.
-Line 4: Inside sidebarLayout(), sidebarPanel() is where the controls go—sliders, buttons, dropdowns, and anything your user interacts with.
-Line 11: mainPanel() is for the main attraction—charts, tables, or whatever outputs your app is generating.
-The magic of Shiny layouts is how flexible and intuitive they are. Not sure where to start? Check out Shiny’s layout gallery, which is packed with examples to spark your creativity.
+Line 1: fluidPage() is the main wrapper that defines a responsive, single-page layout. Everything you see in the app will live inside this. Line 2: titlePanel() is the header—it’s like your app’s welcome mat, setting the tone with a title. Line 3: sidebarLayout() creates the structure for a side panel and main content area. Think of it like a two-column newspaper: controls on one side, results on the other. Line 4: Inside sidebarLayout(), sidebarPanel() is where the controls go—sliders, buttons, dropdowns, and anything your user interacts with. Line 11: mainPanel() is for the main attraction—charts, tables, or whatever outputs your app is generating. The magic of Shiny layouts is how flexible and intuitive they are. Not sure where to start? Check out Shiny’s layout gallery, which is packed with examples to spark your creativity.
 
 And here’s the key takeaway: a thoughtful layout doesn’t just make your app look polished—it makes it more effective, drawing your audience into the story you’re telling with your data.
 
@@ -384,33 +370,71 @@ fluidPage(
 
 ```
 
-[Shiny Widgets Gallery](https://shiny.posit.co/r/gallery/widgets/widget-gallery/)
+[Shiny Widgets Gallery](https://shiny.posit.co/r/gallery/widgets/widget-gallery/){target="_blank"}
 
 ::: notes
-Once you’ve got your layout sorted, it’s time to make your app come alive with widgets. Widgets are the interactive elements that let your users explore, filter, and engage with your data. Think of them as the knobs, levers, and buttons of your app—simple to use but incredibly powerful.
+Now that we’ve nailed the layout, it’s time to make your app interactive. This is where widgets come in—the elements that let users interact with your app.
 
-Shiny offers a treasure trove of widgets. Here are a few crowd favorites:
+Widgets in Shiny are like the controls on a dashboard: they take user input and feed it to your server, which updates the outputs in real time. Here are some of the most common widgets:
 
-sliderInput: Ideal for filtering data across a range. Need your users to zoom in on a specific slice of data? Sliders make it smooth and intuitive.
-radioButtons: Perfect for when you want users to pick one option from a set—no room for fence-sitting here!
-textInput: Allows users to enter custom text, whether it’s a search term, label, or a witty one-liner.
-And, of course, dropdowns, checkboxes, and action buttons round out the collection to cover almost every need.
-Let’s peek at a simple example:
+-   sliderInput: Ideal for selecting values within a range, like filtering data.
+-   radioButtons: Perfect for choosing between predefined options.
+-   textInput: Allows users to enter custom text, great for dynamic queries.
+-   And of course, there are dropdowns, checkboxes, and buttons to cover all your interaction needs.
 
-Line 5: sliderInput is the widget itself. It sets up a slider to let users adjust the number of bins in a histogram, for instance.
-inputId: This is the unique name you’ll use in your server code to refer to this widget.
-label: What your user sees next to the slider—think of it as the slider’s name tag.
-min, max, and value: These set the range of the slider and its starting position.
-And the best part? Widgets don’t just sit there looking pretty—they’re fully reactive. When a user interacts with a widget, your Shiny app instantly updates outputs based on their input. This is what makes Shiny apps feel alive and responsive.
+For example, let’s break down the sliderInput widget:
 
-If you’re looking for inspiration or want to see the full range of widgets, check out Shiny’s widget gallery. It’s like a candy store for data scientists—packed with ideas and examples.
+This creates a slider that controls the number of bins in a histogram. The inputId links it to the server, the label is what users see, and the min, max, and value define its range and default setting.
 
-Here’s a pro tip: start simple. Use one or two widgets to explore your data and get comfortable with their behavior. Once you’ve got the hang of it, you can start layering on more complex interactions.
+Shiny’s widget gallery is your go-to resource for exploring all the available widgets and learning how to implement them.
 
-Speaking of getting comfortable, it’s time to roll up our sleeves and get hands-on. Let’s tackle a challenge and bring some widgets to life!
+Now, as we get hands-on with widgets in our apps, don’t worry too much about making things perfect. Focus on getting something interactive up and running. And remember, the cleaner look you’ll learn on the next slide can really help showcase the functionality of these widgets.
+
+Let’s move on and bring some style to all this interactivity!
 :::
 
-## Old Faithful Geyser App <!-- slide_10 -->
+## Bootstrap Theme <!-- slide_10 -->
+
+```{r bslib}
+#| echo: true
+#| eval: false
+
+library(bslib)
+
+ui <- fluidPage(
+  theme = bs_theme(bootswatch = "darkly"),
+  ...
+)
+
+```
+
+![](images/clipboard-158655481.png)
+
+[Bootswatch Theme Gallery](https://bootswatch.com/){target="_blank"}
+
+::: notes
+So, your Shiny app is working great, but let’s be honest—does it look great? Sometimes, all it takes to upgrade your app from boring to amazing is a cleaner, more polished design. That’s where the {bslib} package comes in.
+
+{bslib} lets you use the bs_theme() function to apply a Bootswatch theme to your Shiny app. With just one line of code, you can give your app a whole new vibe—no CSS wizardry required.
+
+Here’s an example using the Darkly theme:
+
+The Darkly theme gives your app a sleek, moody aesthetic—perfect for data visualizations that feel bold and modern.
+
+Want more options? Visit the Bootswatch gallery to explore a variety of themes, including:
+
+-   Cerulean for a clean, professional look.
+-   Flatly for something modern and polished.
+-   Lumen if you’re going for bright and clean.
+
+Here’s the fun part: Using {bslib} is my little Easter egg for you. It’s one of those simple but powerful tools that can instantly take your app to the next level. You don’t need to change any functionality—just swap in a theme, and suddenly your app feels more professional and engaging.
+
+It’s amazing how much a clean, cohesive design can elevate the user experience. So, while everyone’s busy perfecting the backend, don’t forget to make your frontend shine, too.
+
+Let’s experiment with this and give your apps a stylish boost!
+:::
+
+## Old Faithful Geyser App <!-- slide_11 -->
 
 ### [Eruption Duration vs. Waiting Time]{style="color: #74c947"}
 

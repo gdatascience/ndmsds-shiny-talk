@@ -248,7 +248,7 @@ Tony Galván
 </div><div class="column" style="width:50%;">
 <h3 id="tidy-tuesday"><span style="color: #74c947">Tidy Tuesday</span></h3>
 <ul>
-<li>Tuesdays @ 11AM PST on <a href="https://notredame.zoom.us/j/93246968828?pwd=T2k0QUFKNkxvMkV2ekZrejdpdTJIdz09">Zoom</a></li>
+<li>Tuesdays @ 11AM PST on <a href="https://notredame.zoom.us/j/93246968828?pwd=T2k0QUFKNkxvMkV2ekZrejdpdTJIdz09" target="_blank">Zoom</a></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -321,12 +321,10 @@ Tony Galván
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
 <span id="cb2-2"><a href="" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> ... <span class="co"># UI elements go here</span></span>
-<span id="cb2-3"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
-<span id="cb2-5"><a href="" aria-hidden="true" tabindex="-1"></a>  ... <span class="co"># Server logic goes here</span></span>
-<span id="cb2-6"><a href="" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-7"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb2-4"><a href="" aria-hidden="true" tabindex="-1"></a>  ... <span class="co"># Server logic goes here</span></span>
+<span id="cb2-5"><a href="" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside class="notes">
 <p>Alright, we’ve got Shiny installed—congrats! You’re officially ready to build something awesome. But before we jump into coding, let’s break down the basic anatomy of a Shiny app. Think of it as a crash course in app biology.</p>
@@ -503,7 +501,7 @@ Tony Galván
 <span id="cb3-14"><a href=""></a>  )</span>
 <span id="cb3-15"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="https://shiny.posit.co/r/layouts/">Shiny Layout Gallery</a></p>
+<p><a href="https://shiny.posit.co/r/layouts/" target="_blank">Shiny Layout Gallery</a></p>
 <aside class="notes">
 <p>Let’s talk about the foundation of any Shiny app: the layout. A good layout isn’t just about looking pretty—it’s what makes your app intuitive and easy to use. If the layout is the stage, your data is the star, and Shiny helps set the scene beautifully.</p>
 <p>The most popular layout in Shiny is fluidPage. It’s like the stretchy yoga pants of app design—it adapts effortlessly to different screen sizes, from desktops to mobile phones. Whether your users are on a giant monitor or squinting at their phone, fluidPage keeps your app looking sharp.</p>
@@ -543,15 +541,59 @@ Tony Galván
 <span id="cb4-14"><a href=""></a>  )</span>
 <span id="cb4-15"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><a href="https://shiny.posit.co/r/gallery/widgets/widget-gallery/">Shiny Widgets Gallery</a></p>
+<p><a href="https://shiny.posit.co/r/gallery/widgets/widget-gallery/" target="_blank">Shiny Widgets Gallery</a></p>
 <aside class="notes">
-<p>Once you’ve got your layout sorted, it’s time to make your app come alive with widgets. Widgets are the interactive elements that let your users explore, filter, and engage with your data. Think of them as the knobs, levers, and buttons of your app—simple to use but incredibly powerful.</p>
-<p>Shiny offers a treasure trove of widgets. Here are a few crowd favorites:</p>
-<p>sliderInput: Ideal for filtering data across a range. Need your users to zoom in on a specific slice of data? Sliders make it smooth and intuitive. radioButtons: Perfect for when you want users to pick one option from a set—no room for fence-sitting here! textInput: Allows users to enter custom text, whether it’s a search term, label, or a witty one-liner. And, of course, dropdowns, checkboxes, and action buttons round out the collection to cover almost every need. Let’s peek at a simple example:</p>
-<p>Line 5: sliderInput is the widget itself. It sets up a slider to let users adjust the number of bins in a histogram, for instance. inputId: This is the unique name you’ll use in your server code to refer to this widget. label: What your user sees next to the slider—think of it as the slider’s name tag. min, max, and value: These set the range of the slider and its starting position. And the best part? Widgets don’t just sit there looking pretty—they’re fully reactive. When a user interacts with a widget, your Shiny app instantly updates outputs based on their input. This is what makes Shiny apps feel alive and responsive.</p>
-<p>If you’re looking for inspiration or want to see the full range of widgets, check out Shiny’s widget gallery. It’s like a candy store for data scientists—packed with ideas and examples.</p>
-<p>Here’s a pro tip: start simple. Use one or two widgets to explore your data and get comfortable with their behavior. Once you’ve got the hang of it, you can start layering on more complex interactions.</p>
-<p>Speaking of getting comfortable, it’s time to roll up our sleeves and get hands-on. Let’s tackle a challenge and bring some widgets to life!</p>
+<p>Now that we’ve nailed the layout, it’s time to make your app interactive. This is where widgets come in—the elements that let users interact with your app.</p>
+<p>Widgets in Shiny are like the controls on a dashboard: they take user input and feed it to your server, which updates the outputs in real time. Here are some of the most common widgets:</p>
+<ul>
+<li>sliderInput: Ideal for selecting values within a range, like filtering data.</li>
+<li>radioButtons: Perfect for choosing between predefined options.</li>
+<li>textInput: Allows users to enter custom text, great for dynamic queries.</li>
+<li>And of course, there are dropdowns, checkboxes, and buttons to cover all your interaction needs.</li>
+</ul>
+<p>For example, let’s break down the sliderInput widget:</p>
+<p>This creates a slider that controls the number of bins in a histogram. The inputId links it to the server, the label is what users see, and the min, max, and value define its range and default setting.</p>
+<p>Shiny’s widget gallery is your go-to resource for exploring all the available widgets and learning how to implement them.</p>
+<p>Now, as we get hands-on with widgets in our apps, don’t worry too much about making things perfect. Focus on getting something interactive up and running. And remember, the cleaner look you’ll learn on the next slide can really help showcase the functionality of these widgets.</p>
+<p>Let’s move on and bring some style to all this interactivity!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="bootstrap-theme" class="slide level2">
+<h2>Bootstrap Theme <!-- slide_10 --></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bslib)</span>
+<span id="cb5-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb5-4"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="at">theme =</span> <span class="fu">bs_theme</span>(<span class="at">bootswatch =</span> <span class="st">"darkly"</span>),</span>
+<span id="cb5-5"><a href="" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb5-6"><a href="" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="images/clipboard-158655481.png" class="r-stretch"><p><a href="https://bootswatch.com/" target="_blank">Bootswatch Theme Gallery</a></p>
+<aside class="notes">
+<p>So, your Shiny app is working great, but let’s be honest—does it look great? Sometimes, all it takes to upgrade your app from boring to amazing is a cleaner, more polished design. That’s where the {bslib} package comes in.</p>
+<p>{bslib} lets you use the bs_theme() function to apply a Bootswatch theme to your Shiny app. With just one line of code, you can give your app a whole new vibe—no CSS wizardry required.</p>
+<p>Here’s an example using the Darkly theme:</p>
+<p>The Darkly theme gives your app a sleek, moody aesthetic—perfect for data visualizations that feel bold and modern.</p>
+<p>Want more options? Visit the Bootswatch gallery to explore a variety of themes, including:</p>
+<ul>
+<li>Cerulean for a clean, professional look.</li>
+<li>Flatly for something modern and polished.</li>
+<li>Lumen if you’re going for bright and clean.</li>
+</ul>
+<p>Here’s the fun part: Using {bslib} is my little Easter egg for you. It’s one of those simple but powerful tools that can instantly take your app to the next level. You don’t need to change any functionality—just swap in a theme, and suddenly your app feels more professional and engaging.</p>
+<p>It’s amazing how much a clean, cohesive design can elevate the user experience. So, while everyone’s busy perfecting the backend, don’t forget to make your frontend shine, too.</p>
+<p>Let’s experiment with this and give your apps a stylish boost!</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -565,7 +607,7 @@ Tony Galván
       }</style></aside>
 </section>
 <section id="old-faithful-geyser-app" class="slide level2">
-<h2>Old Faithful Geyser App <!-- slide_10 --></h2>
+<h2>Old Faithful Geyser App <!-- slide_11 --></h2>
 <h3 id="eruption-duration-vs.-waiting-time"><span style="color: #74c947">Eruption Duration vs.&nbsp;Waiting Time</span></h3>
 <div class="layout-sidebar layout-sidebar-left">
 <div class="cell panel-sidebar">
@@ -621,7 +663,9 @@ Tony Galván
 output$distPlot <- renderPlot({
   x <- faithful[, 2]
   bins <- seq(min(x), max(x), length.out = input$bins + 1)
-  hist(x, breaks = bins, col = 'darkgray', border = 'white')
+  hist(x, breaks = bins, col = 'darkgray', border = 'white',
+       xlab = 'Waiting time to next eruption (in mins)',
+       main = 'Histogram of waiting times')
 })
 </script>
  
