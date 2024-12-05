@@ -5,7 +5,7 @@ account: gdatascience
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 13471789
-bundleId: 9441338
+bundleId: 9470534
 url: https://gdatascience.shinyapps.io/shiny/
 version: 1
 quarto_version: 1.6.36

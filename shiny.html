@@ -192,7 +192,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-notes="Hi everyone! My name is Tony Galván, and I’m excited to share one of my favorite R tools with you today — Shiny. I’ve titled this session ‘Get Your Shiny On: Turning R Code into Interactive Gold!’ because Shiny has this amazing ability to transform static code into something dynamic and engaging. Whether you’re building dashboards, apps, or just experimenting with interactivity, Shiny opens up so many possibilities. We’ll keep it fun and hands-on, so by the end of this session, you’ll have the confidence to start building your own Shiny apps. Before we get started, let’s do a quick roll call. In the chat, could everyone share where they’re tuning in from? It’s always great to see the variety of locations represented in these sessions. Also, make sure you’ve got RStudio open and ready to go. This is going to be a hands-on session, and we’ll be coding together. Now, before we jump into the Shiny magic, let me tell you a little about myself." class="quarto-title-block center">
+<section id="title-slide" data-notes="Hi everyone! My name is Tony Galvan, and I’m thrilled to welcome you to this session, ‘Get Your Shiny On: Turning R Code into Interactive Gold!’ Today, we’re going to embark on a journey where we transform static data into dynamic, interactive stories using Shiny. Imagine you’re a storyteller, but instead of words, you use data. Shiny is the magic wand that brings your data stories to life, making them engaging and interactive. Whether you’re building dashboards, apps, or experimenting with machine learning models, Shiny opens up a world of possibilities. Before we dive into the magic of Shiny, let’s do a quick roll call. In the chat, could everyone share where they’re tuning in from? It’s always fascinating to see the diverse locations represented in these sessions. Also, make sure you’ve got RStudio open and ready to go. This is going to be a hands-on session, and we’ll be coding together. By the end of this session, you’ll have the confidence to start building your own Shiny apps and tell your own data stories." class="quarto-title-block center">
   <h1 class="title">Get Your Shiny On</h1>
   <p class="subtitle">Turning R Code into Interactive Gold!</p>
 
@@ -206,19 +206,20 @@ Tony Galván
 
   <p class="date">2024-12-05</p>
 </section>
-<section id="introduction" class="slide level2">
-<h2>Introduction <!-- slide_02 --></h2>
-<h3 id="university-of-notre-dame"><span style="color: #74c947">University of Notre Dame</span></h3>
-<ul>
-<li>1999 B.B.A. Management Information Systems</li>
-<li>2019 M.S. Data Science</li>
-</ul>
-
-<img data-src="images/graduation.jpg" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
-<p>You know, they say lightning doesn’t strike twice—but apparently, diplomas from Notre Dame do. I’m a proud Double Domer, having graduated not once, but twice. The first time was back in 1999 with a Bachelor of Business Administration in Management Information Systems, and then I made my triumphant return in 2019 to earn a Master of Science in Data Science.</p>
-<p>On this slide, you’ll see two photos that are pretty special to me. The one from 1999 is with my dad—look at those fresh faces, full heads of hair, and zero wrinkles. The 2019 photo is a bit more… experienced. This time, I was lucky enough to share the day not just with my dad again, but also my wife and kids.</p>
-<p>Notre Dame didn’t just give me degrees—it gave me a crash course in juggling deadlines, debugging code at 2 a.m., and still showing up to work the next morning ready to tackle the day. It’s also where I built the foundation in R, analytics, and machine learning that shaped my career.</p>
-<p>And while Notre Dame couldn’t keep me young forever, it did teach me how to keep learning—and that’s what I’m here to share with you today.</p>
+<section id="life-changing-stories" class="slide level2">
+<h2>Life Changing Stories <!-- slide_02 --></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><a href="https://en.wikipedia.org/wiki/Rudy_(film)"><img data-src="https://upload.wikimedia.org/wikipedia/en/f/f1/Rudy_%281993_movie_poster%29.jpg" width="393"></a></p>
+</div><div class="column" style="width:50%;">
+<p><a href="https://youtu.be/eBJmj2cJrpE?si=Kod3aOJ0J2DVwAbx"><img data-src="images/clipboard-2848714017.png"></a></p>
+</div></div>
+<aside class="notes">
+<p>Stories have a unique power to inspire and transform our lives. Today, I want to share two stories that changed my life.</p>
+<p>The first story takes us back to October 1993. I was a junior in high school, and my football team was in the midst of an incredible run to the CIF championship in Southern California. Around that time, the movie Rudy was released. For those who haven’t seen it, please raise your hand so that we can all shame you. Rudy is the true story of a young man who dreams of playing football at Notre Dame despite all odds. The movie’s message of perseverance and following your dreams struck a chord with me. It was so inspiring that it prompted me to apply to Notre Dame—a school I had never considered before. And as they say, the rest is history.</p>
+<p>The second story from a TEDx talk on YouTube video called ‘Big Data for the Common Good’ by Nitesh Chawla, a professor at Notre Dame. He argues that by paying attention to the facts and circumstances of people’s daily lives, we can significantly improve health and wellness. He talks about how tracking personal data on a large scale can help us move from insufficient healthcare to abundant health. This idea of using data for the greater good resonated deeply with me.</p>
+<p>This video was instrumental in convincing my wife that I should pursue a Master’s in Data Science at Notre Dame, despite having two small children under 7 and holding down a full-time job. It was a challenging decision, but the story’s message about the power of data to make a difference made it clear that this was the right path for me.</p>
+<p>These stories illustrate the power of well-told narratives to inspire action and change lives. And that’s exactly what Shiny allows us to do—tell better, more engaging stories with our data, machine learning models, and more.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -231,8 +232,42 @@ Tony Galván
           display:block!important;
       }</style></aside>
 </section>
-<section id="introduction-continued" class="slide level2">
-<h2>Introduction (continued) <!-- slide_03 --></h2>
+<section id="my-journey-as-a-double-domer" class="slide level2">
+<h2>My Journey as a Double Domer <!-- slide_03 --></h2>
+<h3 id="university-of-notre-dame"><span style="color: #74c947">University of Notre Dame</span></h3>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>1999 B.B.A. Management Information Systems</li>
+<li>2019 M.S. Data Science</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/now_and_then.jpg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+<aside class="notes">
+<p>You know, they say good things come in pairs, and that’s certainly true for my diplomas from Notre Dame. I’m a proud Double Domer, having graduated not once, but twice. The first time was back in 1999 with a Bachelor of Business Administration in Management Information Systems, and then I made my triumphant return in 2019 to earn a Master of Science in Data Science.</p>
+<p>On this slide, you’ll see two photos that are pretty special to me. The top photo is from 1997 when I was a Student Manager for the Notre Dame football team, working under legendary coaches Lou Holtz and Urban Meyer. And yes, I also worked under the not-so-legendary coach Bob Davie. It was an incredible experience that taught me a lot about teamwork and perseverance.</p>
+<p>The bottom photo is from my 2019 graduation. This time, I was lucky enough to share the day with my wife, kids, and extended family, all proudly wearing matching ‘Double Domer’ t-shirts. It was a moment of celebration and reflection on the journey we had all been through together.</p>
+<p>Notre Dame didn’t just give me degrees—it gave me a mission to fight for good, lifelong friendships, and relationships that I cherish to this day. It’s a place where I learned to bleed blue and gold, and it instilled in me a passion for continuous learning and making a positive impact in the world.</p>
+<p>And that passion for learning and making a difference is what I’m here to share with you today.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-im-up-to-these-days" class="slide level2">
+<h2>What I’m Up to These Days <!-- slide_04 --></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="acorns"><span style="color: #74c947">Acorns</span></h3>
@@ -257,7 +292,7 @@ Tony Galván
 </div>
 </div></div>
 <aside class="notes">
-<p>So, what am I up to these days? Well, I work as an Analytics Engineer and Data Analyst at Acorns. My day-to-day involves wrangling data, building dashboards, and automating workflows. Basically, I’m a professional problem solver—except my puzzles occasionally yell at me in the form of cryptic error messages.</p>
+<p>So, what am I up to these days? Well, I work as an Analytics Engineer and Data Analyst at Acorns. My day-to-day involves wrangling data, building dashboards, and automating workflows. Basically, I’m a professional data problem solver — except my puzzles occasionally yell at me in the form of cryptic error messages.</p>
 <p>Outside of work, I run weekly Tidy Tuesday sessions. These are casual get-togethers where we take random datasets and try to uncover insights—or at least find a halfway decent visualization. It’s part data exploration, part group therapy for R users.</p>
 <p>Tidy Tuesday is where I’ve really leveled up my data science game. It’s been a playground for learning, a laboratory for failed experiments, and a reminder that even the most boring datasets can shine with a little creativity. It’s also where I discovered that debugging is way more tolerable when someone else is suffering alongside you.</p>
 <p>Today, I’m excited to share some of the lessons I’ve learned through work, Tidy Tuesday, and a whole lot of trial and error. Let’s jump in and see how Shiny can add a whole new dimension to your data science toolkit!</p>
@@ -274,7 +309,7 @@ Tony Galván
       }</style></aside>
 </section>
 <section id="what-is-shiny" class="slide level2">
-<h2>What is Shiny? <!-- slide_04 --></h2>
+<h2>What is Shiny? <!-- slide_05 --></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"shiny"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -317,7 +352,7 @@ Tony Galván
 </div>
 </section>
 <section id="anatomy-of-a-shiny-app" class="slide level2 smaller">
-<h2>Anatomy of a Shiny App <!-- slide_05 --></h2>
+<h2>Anatomy of a Shiny App <!-- slide_06 --></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
 <span id="cb2-2"><a href="" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> ... <span class="co"># UI elements go here</span></span>
@@ -327,9 +362,9 @@ Tony Galván
 <span id="cb2-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(ui, server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <aside class="notes">
-<p>Alright, we’ve got Shiny installed—congrats! You’re officially ready to build something awesome. But before we jump into coding, let’s break down the basic anatomy of a Shiny app. Think of it as a crash course in app biology.</p>
+<p>Alright, we’ve got Shiny installed — congrats! You’re officially ready to build something awesome. But before we jump into coding, let’s break down the basic anatomy of a Shiny app. Think of it as a crash course in app biology.</p>
 <p>First up, there are three main components:</p>
-<p>UI (User Interface): This is like the shiny (pun intended) hotel lobby—it’s what users see and interact with. Buttons, sliders, and text boxes live here, welcoming your users like a charming front desk concierge. Server: Behind the scenes, this is where the real magic happens. If the UI is the lobby, the server is the overworked hotel staff making sure the Wi-Fi, room service, and weirdly specific guest requests all work seamlessly. shinyApp: This is the matchmaker that brings the UI and server together, turning your code into a fully functional app.</p>
+<p>UI (User Interface): This is like the shiny (pun intended) hotel lobby — it’s what users see and interact with. Buttons, sliders, and text boxes live here, welcoming your users like a charming front desk concierge. Server: Behind the scenes, this is where the real magic happens. If the UI is the lobby, the server is the overworked hotel staff making sure the Wi-Fi, room service, and weirdly specific guest requests all work seamlessly. shinyApp: This is the matchmaker that brings the UI and server together, turning your code into a fully functional app.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -356,7 +391,7 @@ Tony Galván
 <p>Inputs from the UI go to the server. Imagine your user clicking a button or entering text—it’s like placing an order at a coffee shop. Outputs flow back from the server to the UI. This is your latte (or chart, or table) being served in all its glory. This back-and-forth makes Shiny apps reactive. The server is always listening for changes in inputs and updating the outputs, creating that smooth, interactive experience.</p>
 <p>So how does all this magic work? When you run a Shiny app locally, it sets up a mini web server on your computer. Your machine becomes both the chef and the diner, cooking up data and serving it to yourself.</p>
 <p>If you publish your app to a web server, things get fancier. The web server hosts your app, and anyone with an internet connection can use it. It’s like opening your own restaurant—except no health inspections.</p>
-<p>So, are you ready to roll up your sleeves and build your first Shiny app? Let’s make some interactive magic happen!</p>
+<p>Before you roll up your sleeves and build your first Shiny app, let’s take a look at some examples to see what’s possible. From holiday countdown timers to CIA factbook visualizations, Shiny apps can be as simple or complex as you want. Let’s dive in and see what sparks your creativity!</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -370,8 +405,37 @@ Tony Galván
       }</style></aside>
 </div>
 </section>
+<section id="tidy-tuesday-examples" class="slide level2">
+<h2>Tidy Tuesday Examples <!-- slide_07 --></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><a href="https://gdatascience.shinyapps.io/holiday-timer/" target="_blank">Holiday Countdown Timer</a></p>
+<p><img data-src="images/clipboard-1124655419.png"></p>
+</div><div class="column" style="width:50%;">
+<p><a href="https://gdatascience.shinyapps.io/cia_factbook/" target="_blank">CIA Factbook Country Cluster Explorer</a></p>
+<p><img data-src="images/clipboard-1508160099.png"></p>
+</div></div>
+<aside class="notes">
+<p>Now, I want to show you a couple of Shiny apps I’ve created during my Tidy Tuesday sessions. These projects were a fun way to explore data, sharpen my skills, and sometimes—even unintentionally—discover bugs!</p>
+<p>Holiday Timer This app is a simple countdown timer for upcoming holidays. It shows the days, minutes, and seconds remaining until the next big event. Fun fact: there’s a timezone bug that skews the countdown by a few hours. I never got around to debugging it, but hey—it’s a feature, not a flaw, right?</p>
+<p>2014 CIA Factbook Country Cluster Explorer This app uses data from the CIA Factbook to group countries based on various metrics with k-means clustering. Users can explore scatter plots of different variables, and the app color-codes the points by their cluster.</p>
+<p>When I first built this app, it was clear to me that two clusters were the best choice—simple, explainable, and meaningful. But, sometimes in the real world, stakeholders want to see all of the data and clustering options for themselves. Enter Shiny! With its dynamic interactivity, the app allows users to experiment with different numbers of clusters and immediately see the results while keeping you out of endless back-and-forths.</p>
+<p>Both of these apps started as experiments, and they taught me a lot about Shiny’s capabilities—and its quirks.</p>
+<p>Now, I’m excited to see what you will create as we get hands-on. But first, let’s go step-by-step and build something interactive together.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="create-a-shiny-app" class="slide level2">
-<h2>Create a Shiny App <!-- slide_06 --></h2>
+<h2>Create a Shiny App <!-- slide_08 --></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>File &gt; New File</p>
@@ -448,7 +512,7 @@ Tony Galván
       }</style></aside>
 </section>
 <section id="old-faithful-geyser-data" class="slide level2">
-<h2>Old Faithful Geyser Data <!-- slide_07 --></h2>
+<h2>Old Faithful Geyser Data <!-- slide_09 --></h2>
 <div class="cell">
 <div class="cell-output-display">
 <div class="form-group shiny-input-container">
@@ -483,7 +547,7 @@ Tony Galván
       }</style></aside>
 </section>
 <section id="shiny-layouts" class="slide level2">
-<h2>Shiny Layouts <!-- slide_08 --></h2>
+<h2>Shiny Layouts <!-- slide_10 --></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3" data-code-line-numbers="1-4,11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">fluidPage</span>(</span>
 <span id="cb3-2"><a href=""></a>  <span class="fu">titlePanel</span>(<span class="st">"Old Faithful Geyser Data"</span>),</span>
@@ -523,7 +587,7 @@ Tony Galván
       }</style></aside>
 </section>
 <section id="shiny-widgets" class="slide level2">
-<h2>Shiny Widgets <!-- slide_09 --></h2>
+<h2>Shiny Widgets <!-- slide_11 --></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4" data-code-line-numbers="5-9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="fu">fluidPage</span>(</span>
 <span id="cb4-2"><a href=""></a>  <span class="fu">titlePanel</span>(<span class="st">"Old Faithful Geyser Data"</span>),</span>
@@ -569,7 +633,7 @@ Tony Galván
       }</style></aside>
 </section>
 <section id="bootstrap-theme" class="slide level2">
-<h2>Bootstrap Theme <!-- slide_10 --></h2>
+<h2>Bootstrap Theme <!-- slide_12 --></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bslib)</span>
 <span id="cb5-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
@@ -607,7 +671,7 @@ Tony Galván
       }</style></aside>
 </section>
 <section id="old-faithful-geyser-app" class="slide level2">
-<h2>Old Faithful Geyser App <!-- slide_11 --></h2>
+<h2>Old Faithful Geyser App <!-- slide_13 --></h2>
 <h3 id="eruption-duration-vs.-waiting-time"><span style="color: #74c947">Eruption Duration vs.&nbsp;Waiting Time</span></h3>
 <div class="layout-sidebar layout-sidebar-left">
 <div class="cell panel-sidebar">
@@ -658,6 +722,13 @@ Tony Galván
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="questions" class="slide level2">
+<h2>Questions? <!-- slide_14 --></h2>
+<ul>
+<li><a href="https://www.linkedin.com/in/anthony-raul-galvan" target="_blank">LinkedIn.com/in/anthony-raul-galvan</a></li>
+<li><a href="mailto:agalvan@acorns.com" target="_blank">Email: agalvan@acorns.com</a></li>
+</ul>
 <p>
 <script type="application/shiny-prerendered" data-context="server">
 output$distPlot <- renderPlot({

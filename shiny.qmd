@@ -4,7 +4,7 @@ subtitle: "Turning R Code into Interactive Gold!"
 date: "2024-12-05"
 author: "Tony Galván"
 title-slide-attributes: 
-  data-notes: "Hi everyone! My name is Tony Galván, and I’m excited to share one of my favorite R tools with you today — Shiny. I’ve titled this session 'Get Your Shiny On: Turning R Code into Interactive Gold!' because Shiny has this amazing ability to transform static code into something dynamic and engaging. Whether you’re building dashboards, apps, or just experimenting with interactivity, Shiny opens up so many possibilities. We’ll keep it fun and hands-on, so by the end of this session, you’ll have the confidence to start building your own Shiny apps. Before we get started, let’s do a quick roll call. In the chat, could everyone share where they’re tuning in from? It’s always great to see the variety of locations represented in these sessions. Also, make sure you’ve got RStudio open and ready to go. This is going to be a hands-on session, and we’ll be coding together. Now, before we jump into the Shiny magic, let me tell you a little about myself."
+  data-notes: "Hi everyone! My name is Tony Galvan, and I’m thrilled to welcome you to this session, 'Get Your Shiny On: Turning R Code into Interactive Gold!' Today, we’re going to embark on a journey where we transform static data into dynamic, interactive stories using Shiny. Imagine you’re a storyteller, but instead of words, you use data. Shiny is the magic wand that brings your data stories to life, making them engaging and interactive. Whether you’re building dashboards, apps, or experimenting with machine learning models, Shiny opens up a world of possibilities. Before we dive into the magic of Shiny, let’s do a quick roll call. In the chat, could everyone share where they’re tuning in from? It’s always fascinating to see the diverse locations represented in these sessions. Also, make sure you’ve got RStudio open and ready to go. This is going to be a hands-on session, and we’ll be coding together. By the end of this session, you’ll have the confidence to start building your own Shiny apps and tell your own data stories."
 format:
   revealjs: 
     theme: acorns.scss
@@ -13,26 +13,58 @@ editor: visual
 server: shiny
 ---
 
-## Introduction <!-- slide_02 -->
+## Life Changing Stories <!-- slide_02 -->
+
+::::: columns
+::: {.column width="50%"}
+[![](https://upload.wikimedia.org/wikipedia/en/f/f1/Rudy_%281993_movie_poster%29.jpg){width="393"}](https://en.wikipedia.org/wiki/Rudy_(film))
+:::
+
+::: {.column width="50%"}
+[![](images/clipboard-2848714017.png)](https://youtu.be/eBJmj2cJrpE?si=Kod3aOJ0J2DVwAbx)
+:::
+:::::
+
+::: notes
+Stories have a unique power to inspire and transform our lives. Today, I want to share two stories that changed my life.
+
+The first story takes us back to October 1993. I was a junior in high school, and my football team was in the midst of an incredible run to the CIF championship in Southern California. Around that time, the movie Rudy was released. For those who haven’t seen it, please raise your hand so that we can all shame you. Rudy is the true story of a young man who dreams of playing football at Notre Dame despite all odds. The movie’s message of perseverance and following your dreams struck a chord with me. It was so inspiring that it prompted me to apply to Notre Dame—a school I had never considered before. And as they say, the rest is history.
+
+The second story from a TEDx talk on YouTube video called 'Big Data for the Common Good' by Nitesh Chawla, a professor at Notre Dame. He argues that by paying attention to the facts and circumstances of people’s daily lives, we can significantly improve health and wellness. He talks about how tracking personal data on a large scale can help us move from insufficient healthcare to abundant health. This idea of using data for the greater good resonated deeply with me.
+
+This video was instrumental in convincing my wife that I should pursue a Master’s in Data Science at Notre Dame, despite having two small children under 7 and holding down a full-time job. It was a challenging decision, but the story’s message about the power of data to make a difference made it clear that this was the right path for me.
+
+These stories illustrate the power of well-told narratives to inspire action and change lives. And that’s exactly what Shiny allows us to do—tell better, more engaging stories with our data, machine learning models, and more.
+:::
+
+## My Journey as a Double Domer <!-- slide_03 -->
 
 ### [University of Notre Dame]{style="color: #74c947"}
 
+::::: columns
+::: {.column width="60%"}
 -   1999 B.B.A. Management Information Systems
 -   2019 M.S. Data Science
-
-![](images/graduation.jpg){fig-align="center"}
-
-::: notes
-You know, they say lightning doesn’t strike twice—but apparently, diplomas from Notre Dame do. I’m a proud Double Domer, having graduated not once, but twice. The first time was back in 1999 with a Bachelor of Business Administration in Management Information Systems, and then I made my triumphant return in 2019 to earn a Master of Science in Data Science.
-
-On this slide, you’ll see two photos that are pretty special to me. The one from 1999 is with my dad—look at those fresh faces, full heads of hair, and zero wrinkles. The 2019 photo is a bit more… experienced. This time, I was lucky enough to share the day not just with my dad again, but also my wife and kids.
-
-Notre Dame didn’t just give me degrees—it gave me a crash course in juggling deadlines, debugging code at 2 a.m., and still showing up to work the next morning ready to tackle the day. It’s also where I built the foundation in R, analytics, and machine learning that shaped my career.
-
-And while Notre Dame couldn’t keep me young forever, it did teach me how to keep learning—and that’s what I’m here to share with you today.
 :::
 
-## Introduction (continued) <!-- slide_03 -->
+::: {.column width="40%"}
+![](images/now_and_then.jpg){fig-align="center"}
+:::
+:::::
+
+::: notes
+You know, they say good things come in pairs, and that’s certainly true for my diplomas from Notre Dame. I’m a proud Double Domer, having graduated not once, but twice. The first time was back in 1999 with a Bachelor of Business Administration in Management Information Systems, and then I made my triumphant return in 2019 to earn a Master of Science in Data Science.
+
+On this slide, you’ll see two photos that are pretty special to me. The top photo is from 1997 when I was a Student Manager for the Notre Dame football team, working under legendary coaches Lou Holtz and Urban Meyer. And yes, I also worked under the not-so-legendary coach Bob Davie. It was an incredible experience that taught me a lot about teamwork and perseverance.
+
+The bottom photo is from my 2019 graduation. This time, I was lucky enough to share the day with my wife, kids, and extended family, all proudly wearing matching 'Double Domer' t-shirts. It was a moment of celebration and reflection on the journey we had all been through together.
+
+Notre Dame didn’t just give me degrees—it gave me a mission to fight for good, lifelong friendships, and relationships that I cherish to this day. It’s a place where I learned to bleed blue and gold, and it instilled in me a passion for continuous learning and making a positive impact in the world.
+
+And that passion for learning and making a difference is what I’m here to share with you today.
+:::
+
+## What I'm Up to These Days <!-- slide_04 -->
 
 ::::: columns
 ::: {.column width="50%"}
@@ -54,7 +86,7 @@ And while Notre Dame couldn’t keep me young forever, it did teach me how to ke
 :::::
 
 ::: notes
-So, what am I up to these days? Well, I work as an Analytics Engineer and Data Analyst at Acorns. My day-to-day involves wrangling data, building dashboards, and automating workflows. Basically, I’m a professional problem solver—except my puzzles occasionally yell at me in the form of cryptic error messages.
+So, what am I up to these days? Well, I work as an Analytics Engineer and Data Analyst at Acorns. My day-to-day involves wrangling data, building dashboards, and automating workflows. Basically, I’m a professional data problem solver — except my puzzles occasionally yell at me in the form of cryptic error messages.
 
 Outside of work, I run weekly Tidy Tuesday sessions. These are casual get-togethers where we take random datasets and try to uncover insights—or at least find a halfway decent visualization. It’s part data exploration, part group therapy for R users.
 
@@ -63,7 +95,7 @@ Tidy Tuesday is where I’ve really leveled up my data science game. It’s been
 Today, I’m excited to share some of the lessons I’ve learned through work, Tidy Tuesday, and a whole lot of trial and error. Let’s jump in and see how Shiny can add a whole new dimension to your data science toolkit!
 :::
 
-## What is Shiny? <!-- slide_04 -->
+## What is Shiny? <!-- slide_05 -->
 
 ```{r ShinyInstall}
 #| echo: true
@@ -94,7 +126,7 @@ With Shiny, you can create dashboards, visualizations, and even full-fledged web
 We’re going to get hands-on with Shiny today, and by the end of this session, you’ll be ready to build your own interactive masterpieces. So, what do you say—ready to get your Shiny on?
 :::
 
-## Anatomy of a Shiny App <!-- slide_05 --> {.smaller}
+## Anatomy of a Shiny App <!-- slide_06 --> {.smaller}
 
 ```{r ShinyCodeSnippet}
 #| echo: true
@@ -109,11 +141,11 @@ shinyApp(ui, server)
 ```
 
 ::: notes
-Alright, we’ve got Shiny installed—congrats! You’re officially ready to build something awesome. But before we jump into coding, let’s break down the basic anatomy of a Shiny app. Think of it as a crash course in app biology.
+Alright, we’ve got Shiny installed — congrats! You’re officially ready to build something awesome. But before we jump into coding, let’s break down the basic anatomy of a Shiny app. Think of it as a crash course in app biology.
 
 First up, there are three main components:
 
-UI (User Interface): This is like the shiny (pun intended) hotel lobby—it’s what users see and interact with. Buttons, sliders, and text boxes live here, welcoming your users like a charming front desk concierge. Server: Behind the scenes, this is where the real magic happens. If the UI is the lobby, the server is the overworked hotel staff making sure the Wi-Fi, room service, and weirdly specific guest requests all work seamlessly. shinyApp: This is the matchmaker that brings the UI and server together, turning your code into a fully functional app.
+UI (User Interface): This is like the shiny (pun intended) hotel lobby — it’s what users see and interact with. Buttons, sliders, and text boxes live here, welcoming your users like a charming front desk concierge. Server: Behind the scenes, this is where the real magic happens. If the UI is the lobby, the server is the overworked hotel staff making sure the Wi-Fi, room service, and weirdly specific guest requests all work seamlessly. shinyApp: This is the matchmaker that brings the UI and server together, turning your code into a fully functional app.
 :::
 
 . . .
@@ -196,10 +228,40 @@ So how does all this magic work? When you run a Shiny app locally, it sets up a 
 
 If you publish your app to a web server, things get fancier. The web server hosts your app, and anyone with an internet connection can use it. It’s like opening your own restaurant—except no health inspections.
 
-So, are you ready to roll up your sleeves and build your first Shiny app? Let’s make some interactive magic happen!
+Before you roll up your sleeves and build your first Shiny app, let’s take a look at some examples to see what’s possible. From holiday countdown timers to CIA factbook visualizations, Shiny apps can be as simple or complex as you want. Let’s dive in and see what sparks your creativity!
 :::
 
-## Create a Shiny App <!-- slide_06 -->
+## Tidy Tuesday Examples <!-- slide_07 -->
+
+::::: columns
+::: {.column width="50%"}
+[Holiday Countdown Timer](https://gdatascience.shinyapps.io/holiday-timer/){target="_blank"}
+
+![](images/clipboard-1124655419.png)
+:::
+
+::: {.column width="50%"}
+[CIA Factbook Country Cluster Explorer](https://gdatascience.shinyapps.io/cia_factbook/){target="_blank"}
+
+![](images/clipboard-1508160099.png)
+:::
+:::::
+
+::: notes
+Now, I want to show you a couple of Shiny apps I’ve created during my Tidy Tuesday sessions. These projects were a fun way to explore data, sharpen my skills, and sometimes—even unintentionally—discover bugs!
+
+Holiday Timer This app is a simple countdown timer for upcoming holidays. It shows the days, minutes, and seconds remaining until the next big event. Fun fact: there’s a timezone bug that skews the countdown by a few hours. I never got around to debugging it, but hey—it’s a feature, not a flaw, right?
+
+2014 CIA Factbook Country Cluster Explorer This app uses data from the CIA Factbook to group countries based on various metrics with k-means clustering. Users can explore scatter plots of different variables, and the app color-codes the points by their cluster.
+
+When I first built this app, it was clear to me that two clusters were the best choice—simple, explainable, and meaningful. But, sometimes in the real world, stakeholders want to see all of the data and clustering options for themselves. Enter Shiny! With its dynamic interactivity, the app allows users to experiment with different numbers of clusters and immediately see the results while keeping you out of endless back-and-forths.
+
+Both of these apps started as experiments, and they taught me a lot about Shiny’s capabilities—and its quirks.
+
+Now, I’m excited to see what you will create as we get hands-on. But first, let’s go step-by-step and build something interactive together.
+:::
+
+## Create a Shiny App <!-- slide_08 -->
 
 ::::: columns
 ::: {.column width="50%"}
@@ -267,7 +329,7 @@ So, what’s happening behind the scenes? Here’s a quick rundown:
 Ready to give it a try? Click that ‘Run App’ button and watch your Shiny app come to life!
 :::
 
-## Old Faithful Geyser Data <!-- slide_07 -->
+## Old Faithful Geyser Data <!-- slide_09 -->
 
 ```{r}
 sliderInput("bins", "Number of bins:",
@@ -302,7 +364,7 @@ By exploring this app, you can see how Shiny makes it easy to add interactivity 
 Ready to build on this foundation and create something even more exciting? Let’s dive deeper into Shiny’s capabilities!
 :::
 
-## Shiny Layouts <!-- slide_08 -->
+## Shiny Layouts <!-- slide_10 -->
 
 ```{r ShinyLayouts}
 #| echo: true
@@ -345,7 +407,7 @@ And here’s the key takeaway: a thoughtful layout doesn’t just make your app 
 Now, let’s dive into the interactive elements that bring these layouts to life.
 :::
 
-## Shiny Widgets <!-- slide_09 -->
+## Shiny Widgets <!-- slide_11 -->
 
 ```{r ShinyUIWidgets}
 #| echo: true
@@ -393,7 +455,7 @@ Now, as we get hands-on with widgets in our apps, don’t worry too much about m
 Let’s move on and bring some style to all this interactivity!
 :::
 
-## Bootstrap Theme <!-- slide_10 -->
+## Bootstrap Theme <!-- slide_12 -->
 
 ```{r bslib}
 #| echo: true
@@ -434,7 +496,7 @@ It’s amazing how much a clean, cohesive design can elevate the user experience
 Let’s experiment with this and give your apps a stylish boost!
 :::
 
-## Old Faithful Geyser App <!-- slide_11 -->
+## Old Faithful Geyser App <!-- slide_13 -->
 
 ### [Eruption Duration vs. Waiting Time]{style="color: #74c947"}
 
@@ -539,3 +601,8 @@ Remember, this is a creative and collaborative exercise. Even if you’re new to
 
 At the end, we’ll come back together to showcase what you’ve built and discuss what you learned. Good luck—let’s get coding!
 :::
+
+## Questions? <!-- slide_14 -->
+
+-   [LinkedIn.com/in/anthony-raul-galvan](https://www.linkedin.com/in/anthony-raul-galvan){target="_blank"}
+-   [Email: agalvan\@acorns.com](mailto:agalvan@acorns.com){target="_blank"}
